@@ -1,0 +1,30 @@
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static "main/css/Home/Sport.css" %}">
+</head>
+<div class="background">
+    <img alt='Sport' class='photo-background' src="{% static "main/Photo/bg-sport.jpg" %}"/>
+    <div class="background-filter-sport">
+        <div class="containet-Main-text-sport">
+            <h1 class="Main-text-sport">Спорт</h1>
+        </div>
+        <div class="container-filter-sports">
+            <div class="filter-sports">
+                <p class='text-filter'>Футбол</p>
+                <p class='text-filter'>ТЕННИс</p>
+                <p class='text-filter'>Хоккей</p>
+                <p class='text-filter'>воллейбол</p>
+                <p class='text-filter'>Басетбол</p>
+                <p class='text-filter'>КИБЕРСПОРТ</p>
+                <p class='text-filter'>MMA</p>
+            </div>
+        </div>
+        <div class="container-loto">
+            <div class="container-flex-sport">
+                {% for i in "1234" %}
+                        {% include "main/items/Loto.html" %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

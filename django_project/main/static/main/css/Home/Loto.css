@@ -1,0 +1,197 @@
+.photo-background {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    filter: blur(3px);
+    z-index: -1;
+}
+
+.bg-block-loto {
+    position: absolute;
+    top: 0px;
+    width: 250px;
+    height: 251px;
+    z-index: -1;
+}
+
+.container-loto {
+    max-width: 1360px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.background-filter-loto {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(0deg, rgb(0, 0, 0) 10%, rgba(0, 0, 0, 0.36)  50%, rgb(0, 0, 0) 100%);
+}
+
+.background {
+    position: relative;
+    height: 100vh;
+}
+
+.containet-Main-text-loto {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 50px 0;
+}
+
+.Main-text-loto {
+    font-size: 90px;
+    color: #fff;
+    font-weight: 100;
+    letter-spacing: 50px
+}
+
+
+
+.bg-item-loto {
+    margin: 0 20px 30px 20px;
+    position: relative;
+    width: 30vh;
+    max-width: 250px;
+    height: 50vh;
+    max-height: 400px;
+    overflow: hidden;
+    border-radius: 27px;
+    background: #FF5733;
+    z-index: 1;
+    box-shadow: -4px 4px 5px rgba(255, 255, 255, 0.25), -8px 8px 10px rgba(108, 108, 108, 0.5);
+}
+
+.bg-photo-loto {
+    position: absolute;
+    top: 20px;
+    z-index: -1;
+}
+
+.description-loto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 215px;
+    width: 100%;
+    margin: auto;
+}
+
+.coin-loto {
+    position: relative;
+    top: 0px;
+    opacity: 1;
+    width: 15vh;
+    height: 14vh;
+    margin: 20px 0 6px 0;
+    transition: 0.3s;
+}
+
+.main-text-loto {
+    position: relative;
+    top: 0;
+
+    display: block;
+    color: #fff;
+    font-size: 3vh;
+    font-weight: 300;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.participants-loto {
+    margin: 20px 0 20px 0;
+}
+
+.participants {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3px;
+}
+
+.flex-participants {
+    display: flex;
+}
+
+.text-participants {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 300;
+
+}
+
+.description-text-loto {
+    font-size: 22px;
+    color: #fff;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.containet-description-text-loto {
+    position: absolute;
+    width: 50vh;
+    top: 30px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.icon-participants {
+    position: relative;
+    margin-left: 3px;
+}
+
+.participants-bar {
+    position: relative;
+    width: 25vh;
+    height: 5px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.cmomlit-bar {
+    position: absolute;
+    height: 5px;
+    background: #DD5954;
+    border-radius: 10px;
+}
+
+.btn-loto {
+    width: 25vh;
+    height: 6vh;
+    font-size: 3vh;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.26);
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.59);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    gap: 25px;
+    margin-top: 10vh;
+    z-index: 1;
+}
+
+
+
+
+
+.container-flex-loto {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    max-height: 500px;
+}
+
+.slider-container-flex {
+    display: flex;
+    justify-content: space-between;
+}

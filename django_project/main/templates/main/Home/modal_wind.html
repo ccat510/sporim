@@ -1,0 +1,174 @@
+{#<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"#}
+{#     data-bs-keyboard="false"#}
+{#     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">#}
+{#    <div class="modal-dialog ">#}
+{#        <div class="modal-content">#}
+{#            <div class="modal-header">#}
+{#                <h5 class="modal-title" id="staticBackdropLabel">Настройки оплаты</h5>#}
+{#                <button type="button" class="btn-close" data-bs-dismiss="modal"#}
+{#                        aria-label="Close"></button>#}
+{#            </div>#}
+{#            <form method="post" action="/">#}
+{#                {% csrf_token %}#}
+{#                <div class="modal-body">#}
+{#                    <div class="mb-3">#}
+{#                        <label for="CruptoAddr" class="col-form-label">Адрес вашего кошелька:</label>#}
+{#                        <textarea name="CruptoAddr" class="form-control" id="CruptoAddr" placeholder="{{ Profile.CruptoAddr }}"></textarea>#}
+{#                    </div>#}
+{##}
+{#                </div>#}
+{#                <div class="modal-footer">#}
+{#                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>#}
+{#                    <button class="btn btn-primary" data-bs-target="#Settings" data-bs-toggle="modal" data-bs-dismiss="modal">Настройки</button>#}
+{#                    <button class="btn btn-primary" data-bs-target="#History" data-bs-toggle="modal" data-bs-dismiss="modal">История</button>#}
+{#                </div>#}
+{#            </form>#}
+{##}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{#<div class="modal fade" id="History" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">#}
+{#  <div class="modal-dialog modal-dialog-centered">#}
+{#    <div class="modal-content">#}
+{#      <div class="modal-header">#}
+{#        <h5 class="modal-title" id="HistoryLabel2">Modal 2</h5>#}
+{#        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>#}
+{#      </div>#}
+{#      <div class="modal-body">#}
+{#        Hide this modal and show the first with the button below.#}
+{#      </div>#}
+{#      <div class="modal-footer">#}
+{#        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to first</button>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#</div>#}
+{#<div class="modal fade" id="Settings" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">#}
+{#  <div class="modal-dialog modal-dialog-centered">#}
+{#    <div class="modal-content">#}
+{#      <div class="modal-header">#}
+{#        <h5 class="modal-title" id="exampleModalToggleLabel2">Modal 2</h5>#}
+{#        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>#}
+{#      </div>#}
+{#      <div class="modal-body">#}
+{#        Hide this modal and show the first with the button below.#}
+{#      </div>#}
+{#      <div class="modal-footer">#}
+{#        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to first</button>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#</div>#}
+
+<div class="modal fade" id="staticBackdrop" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Ваш баланс: {{ Profile.balance }} Т <br>
+                для оплаты переведите ETH на счёт: 0xB3e6B22016d5716F9D3fB2F596F95AD636E48430 <br> и Нажмите кнопку обновить
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Выйти</button>
+                <button class="btn btn-primary" onclick="updete_balance()">Обновить
+                </button>
+
+                <button class="btn btn-primary" data-bs-target="#History" data-bs-toggle="modal"
+                        data-bs-dismiss="modal">История
+                </button>
+                <button class="btn btn-primary" data-bs-target="#Settings" data-bs-toggle="modal"
+                        data-bs-dismiss="modal">Настройки
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="History" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Show a second modal and hide this one with the button below.
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#staticBackdrop" data-bs-toggle="modal"
+                        data-bs-dismiss="modal">Назад
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="Settings" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Show a second modal and hide this one with the button below.
+                <form method="post" action="/">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="CruptoAddr" class="col-form-label">Адрес вашего кошелька:</label>
+                        <textarea name="CruptoAddr" class="form-control" id="CruptoAddr" placeholder="{{ Profile.CruptoAddr }}"></textarea>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="submit" class="btn btn-primary">Отправить</button>
+                </div>
+            </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+        function updete_balance() {
+        var token = '{{csrf_token}}';
+        $.ajax({
+            url: "updata_balance",
+            headers: {
+                "X-Requested-With": "XMLHttpRequest",
+                "X-CSRFToken": token,
+            },
+            success: function (response) {
+                location.reload();
+            },
+            error: function (response) {
+                alert("Ошибка оплаты");
+            }
+        });
+    }
+</script>
+
+{##}
+{#<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">#}
+{#  <div class="modal-dialog modal-dialog-centered">#}
+{#    <div class="modal-content">#}
+{#      <div class="modal-header">#}
+{#        <h5 class="modal-title" id="exampleModalToggleLabel2">Modal 2</h5>#}
+{#        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>#}
+{#      </div>#}
+{#      <div class="modal-body">#}
+{#        Hide this modal and show the first with the button below.#}
+{#      </div>#}
+{#      <div class="modal-footer">#}
+{#        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to first</button>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#</div>#}
+{#<a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a>#}

@@ -1,0 +1,18 @@
+{% load static %}
+
+<div class="background">
+    <img alt='loto' class='photo-background' src="{% static "main/Photo/loto.jpg" %}"/>
+    <div class="background-filter-loto">
+        <div class="containet-Main-text-loto">
+            <h1 class="Main-text-loto">ЛОТЕРЕЯ</h1>
+        </div>
+        <div class="container-loto">
+            <div class="container-flex-loto">
+
+                {% for card in Loto %}
+                    {% include "main/items/Loto.html" %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

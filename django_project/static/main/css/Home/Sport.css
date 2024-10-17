@@ -1,0 +1,267 @@
+.photo-background {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    filter: blur(3px);
+    z-index: -1;
+}
+
+.background-filter-sport {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(0deg, rgb(0, 0, 0) 10%, rgba(0, 0, 0, 0.36) 50%, rgb(0, 0, 0) 100%);
+}
+
+.background {
+    position: relative;
+    height: 100vh;
+}
+
+.containet-Main-text-sport {
+    display: flex;
+    justify-content: center;
+    margin-top: 85px;
+    text-transform: uppercase;
+}
+
+.Main-text-sport {
+    font-size: 90px;
+    color: #fff;
+    font-weight: 100;
+    letter-spacing: 50px
+}
+
+.container-filter-sports {
+    max-width: 1360px;
+    width: 100%;
+    margin: auto;
+}
+
+.filter-sports {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.text-filter {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 36px;
+    cursor: pointer;
+}
+
+
+.filter-sports {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.item-sport {
+    position: relative;
+    width: 336px;
+    height: 226px;
+    margin: 0 23px 60px 23px;
+    cursor: pointer;
+}
+
+.participants-sport {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    display: flex;
+}
+
+.text-participants {
+    position: relative;
+    top: 2px;
+    font-size: 12px;
+}
+
+.bg-sport-item {
+    position: absolute;
+    background: linear-gradient(0deg, rgba(0, 13, 28, 1), rgba(65, 117, 177, 0.47));
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25), -8px 8px 10px rgba(108, 108, 108, 0.5);
+    border-radius: 25px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.bg-photo-sport {
+    position: absolute;
+    border-radius: 25px;
+    z-index: 1;
+}
+
+.bg-flex-item-sport {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 295px;
+    width: 100%;
+    margin: auto;
+}
+
+.container-main-text {
+    white-space: nowrap;
+    width: 100%;
+    text-align: center;
+}
+
+.main-text-sport {
+    color: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 25px;
+    margin: 15px 0 15px 0;
+    font-weight: 400;
+}
+
+.container-photo-match {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.text-vs {
+    font-size: 36px;
+    color: #fff;
+}
+
+.bg-photo-match {
+    width: 91px;
+    height: 91px;
+    border-radius: 13px;
+    background-color: rgba(255, 255, 255, 0.27);
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.photo-match {
+    width: 81px;
+    height: 81px;
+    transition: 0.3s;
+}
+
+.container-coefficient {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.bg-coefficient {
+    width: 80px;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.27);
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+    padding: 10px;
+}
+
+.text-cofficient {
+    color: #fff;
+    font-weight: 300;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.container-coefficient-money {
+    display: flex;
+    margin-top: 50px;
+    width: 100%;
+    justify-content: space-between;
+    transition: 0.3s;
+}
+
+.bg-coefficient-money {
+    width: 90px;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.27);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    padding: 10px;
+}
+
+.text-cofficient-money {
+    color: #ffff;
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.space-bg-coefficient-money {
+    width: 90px;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.27);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.3s;
+    padding: 4px;
+}
+
+.sum-text-cofficient-money {
+    color: #fff;
+}
+
+
+.container-sport {
+    max-width: 1360px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.container-flex-sport {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+
+.slider-container-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.item-sport:hover .bg-photo-match {
+    width: 60px;
+    height: 60px;
+    margin: 0 4px 0 4px;
+}
+
+.item-sport:hover .photo-match {
+    width: 50px;
+    height: 50px;
+}
+
+.item-sport:hover .bg-coefficient {
+    width: 70px;
+    height: 20px;
+}
+
+.item-sport:hover .container-coefficient-money {
+    margin-top: 15px;
+
+}
+
+
+.item-sport:hover .text-cofficient {
+    font-size: 14px;
+}

@@ -1,0 +1,1015 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en"
+>
+<head
+><title>Whimsical Scaly Termite</title
+>
+    <meta property="og:title" content="Whimsical Scaly Termite"/>
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+    />
+    <meta charset="utf-8"/>
+    <meta property="twitter:card" content="summary_large_image"/>
+    <style data-tag="reset-style-sheet">
+        html {
+            line-height: 1.15;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            border-width: 0;
+            border-style: solid;
+        }
+
+        p, li, ul, pre, div, h1, h2, h3, h4, h5, h6, figure, blockquote, figcaption {
+            margin: 0;
+            padding: 0;
+        }
+
+        button {
+            background-color: transparent;
+        }
+
+        button, input, optgroup, select, textarea {
+            font-family: inherit;
+            font-size: 100%;
+            line-height: 1.15;
+            margin: 0;
+        }
+
+        button, select {
+            text-transform: none;
+        }
+
+        button, [type="button"], [type="reset"], [type="submit"] {
+            -webkit-appearance: button;
+        }
+
+        button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner {
+            border-style: none;
+            padding: 0;
+        }
+
+        button:-moz-focus, [type="button"]:-moz-focus, [type="reset"]:-moz-focus, [type="submit"]:-moz-focus {
+            outline: 1px dotted ButtonText;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: inherit;
+        }
+
+        input {
+            padding: 2px 4px;
+        }
+
+        img {
+            display: block;
+        }
+
+        html {
+            scroll-behavior: smooth
+        }</style
+    >
+    <style data-tag="default-style-sheet">
+        html {
+            font-family: Inter;
+            font-size: 16px;
+        }
+
+        body {
+            font-weight: 400;
+            font-style: normal;
+            text-decoration: none;
+            text-transform: none;
+            letter-spacing: normal;
+            line-height: 1.15;
+            color: var(--dl-color-gray-black);
+            background-color: var(--dl-color-gray-white);
+
+        }</style>
+
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap"
+            data-tag="font"
+    />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+            data-tag="font"
+    />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+            data-tag="font"
+    />
+
+</head>
+<body>
+<div>
+    <link rel="stylesheet" href="{% static "main/css/Main_index/style.css" %}">
+    <link rel="stylesheet" href="{% static "main/css/Main_index/index.css" %}">
+    <div class="home-container">
+        <div class="home-header">
+            <header data-thq="thq-navbar" class="navbarContainer home-navbar-interactive"><span>СПОРИМ</span>
+                <div data-thq="thq-navbar-nav" class="home-desktop-menu">
+                    <nav class="home-links"></nav>
+                    <div class="home-buttons">
+                        {% if auth == 0 %}
+                            <a href="{% url 'login' %}">
+                                <button class="home-login buttonFlat">Login
+                                </button>
+                            </a>
+                            <a href="{% url 'register' %}">
+                                <button class="buttonFilled">Register
+                                </button>
+                            </a>
+                        {% else %}
+                            <div   class="home-login buttonFlat" > {{ Profile.user }}</div>
+                            <button data-bs-target="#staticBackdrop" class="home-register1 buttonFilled" data-bs-toggle="modal">Баланс
+                            </button>
+                            <a href="{% url 'register' %}">
+                                <button class="buttonFilled">Выйти
+                                </button>
+                            </a>
+                        {% endif %}
+
+
+                    </div>
+                </div>
+                <div data-thq="thq-burger-menu" class="home-burger-menu">
+                    <svg viewBox="0 0 1024 1024" class="home-icon socialIcons">
+                        <path d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"></path>
+                    </svg>
+                </div>
+                <div
+                        data-thq="thq-mobile-menu"
+                        class="home-mobile-menu1 mobileMenu">
+                    <div class="home-nav">
+                        <div class="home-top"><span class="logo">BRAND</span>
+                            <div data-thq="thq-close-menu" class="home-close-menu">
+                                <svg
+                                        viewBox="0 0 1024 1024"
+                                        class="home-icon02 socialIcons"
+                                >
+                                    <path
+                                            d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
+                                    ></path>
+                                </svg>
+                            </div>
+                        </div
+                        >
+                        <nav class="home-links1"
+                        ><span class="home-nav12 bodySmall">Home</span
+                        ><span class="home-nav22 bodySmall">Products</span
+                        ><span class="home-nav32 bodySmall">About Us</span
+                        ><span class="home-nav42 bodySmall">Contact</span
+                        ><span class="home-nav52 bodySmall">FAQ</span></nav
+                        >
+                        <div class="home-buttons1"
+                        >
+                            <a href="{% url 'login' %}">
+                                <button class="buttonFlat">Login
+                                </button>
+                                <a href="{% url 'login' %}">
+                                    <a href="{% url 'register' %}">
+                                        <button class="buttonFilled">Register</button>
+                                    </a>
+                        </div>
+                    </div>
+                    <div>
+                        <svg
+                                viewBox="0 0 950.8571428571428 1024"
+                                class="home-icon04 socialIcons">
+                            <path
+                                    d="M925.714 233.143c-25.143 36.571-56.571 69.143-92.571 95.429 0.571 8 0.571 16 0.571 24 0 244-185.714 525.143-525.143 525.143-104.571 0-201.714-30.286-283.429-82.857 14.857 1.714 29.143 2.286 44.571 2.286 86.286 0 165.714-29.143 229.143-78.857-81.143-1.714-149.143-54.857-172.571-128 11.429 1.714 22.857 2.857 34.857 2.857 16.571 0 33.143-2.286 48.571-6.286-84.571-17.143-148-91.429-148-181.143v-2.286c24.571 13.714 53.143 22.286 83.429 23.429-49.714-33.143-82.286-89.714-82.286-153.714 0-34.286 9.143-65.714 25.143-93.143 90.857 112 227.429 185.143 380.571 193.143-2.857-13.714-4.571-28-4.571-42.286 0-101.714 82.286-184.571 184.571-184.571 53.143 0 101.143 22.286 134.857 58.286 41.714-8 81.714-23.429 117.143-44.571-13.714 42.857-42.857 78.857-81.143 101.714 37.143-4 73.143-14.286 106.286-28.571z"
+                            ></path>
+                        </svg
+                        >
+                        <svg
+                                viewBox="0 0 877.7142857142857 1024"
+                                class="home-icon06 socialIcons"
+                        >
+                            <path
+                                    d="M585.143 512c0-80.571-65.714-146.286-146.286-146.286s-146.286 65.714-146.286 146.286 65.714 146.286 146.286 146.286 146.286-65.714 146.286-146.286zM664 512c0 124.571-100.571 225.143-225.143 225.143s-225.143-100.571-225.143-225.143 100.571-225.143 225.143-225.143 225.143 100.571 225.143 225.143zM725.714 277.714c0 29.143-23.429 52.571-52.571 52.571s-52.571-23.429-52.571-52.571 23.429-52.571 52.571-52.571 52.571 23.429 52.571 52.571zM438.857 152c-64 0-201.143-5.143-258.857 17.714-20 8-34.857 17.714-50.286 33.143s-25.143 30.286-33.143 50.286c-22.857 57.714-17.714 194.857-17.714 258.857s-5.143 201.143 17.714 258.857c8 20 17.714 34.857 33.143 50.286s30.286 25.143 50.286 33.143c57.714 22.857 194.857 17.714 258.857 17.714s201.143 5.143 258.857-17.714c20-8 34.857-17.714 50.286-33.143s25.143-30.286 33.143-50.286c22.857-57.714 17.714-194.857 17.714-258.857s5.143-201.143-17.714-258.857c-8-20-17.714-34.857-33.143-50.286s-30.286-25.143-50.286-33.143c-57.714-22.857-194.857-17.714-258.857-17.714zM877.714 512c0 60.571 0.571 120.571-2.857 181.143-3.429 70.286-19.429 132.571-70.857 184s-113.714 67.429-184 70.857c-60.571 3.429-120.571 2.857-181.143 2.857s-120.571 0.571-181.143-2.857c-70.286-3.429-132.571-19.429-184-70.857s-67.429-113.714-70.857-184c-3.429-60.571-2.857-120.571-2.857-181.143s-0.571-120.571 2.857-181.143c3.429-70.286 19.429-132.571 70.857-184s113.714-67.429 184-70.857c60.571-3.429 120.571-2.857 181.143-2.857s120.571-0.571 181.143 2.857c70.286 3.429 132.571 19.429 184 70.857s67.429 113.714 70.857 184c3.429 60.571 2.857 120.571 2.857 181.143z"
+                            ></path>
+                        </svg
+                        >
+                        <svg
+                                viewBox="0 0 602.2582857142856 1024"
+                                class="home-icon08 socialIcons"
+                        >
+                            <path
+                                    d="M548 6.857v150.857h-89.714c-70.286 0-83.429 33.714-83.429 82.286v108h167.429l-22.286 169.143h-145.143v433.714h-174.857v-433.714h-145.714v-169.143h145.714v-124.571c0-144.571 88.571-223.429 217.714-223.429 61.714 0 114.857 4.571 130.286 6.857z"
+                            ></path>
+                        </svg>
+                    </div>
+                </div>
+            </header>
+        </div
+        >
+        <div class="home-hero"
+        >
+            <div class="home-container01"
+            ><h1 class="home-text">СПОРИМ</h1
+            ><span class="home-text001"
+            ><span
+            ><span
+            >Готовы испытать удачу? Делайте ставки, выигрывайте и доказывайте свою правоту – всё это возможно на платформе СПОРИМ! </span
+            ><span> </span></span
+            ><span
+            ><span> </span></span></span
+            >
+                <div class="home-btn-group"
+                >
+                    <button class="home-button button">Начать использование
+                    </button
+                    >
+                    <button class="home-button01 button">Узнать больше</button>
+                </div
+                >
+            </div
+            >
+            <img
+                    alt="image"
+                    src="{% static "main/Photo/dog.png" %}"
+                    class="home-image"/></div
+        >
+        <div class="home-features"
+        >
+            <div class="featuresContainer"
+            >
+                <div class="home-features1"
+                >
+                    <div class="home-container02"
+                    ><span class="overline"><span>Немного о нас</span><br/></span
+                    >
+                        <h2 class="home-features-heading">ПРОЕКТ СПОРИМ</h2
+                        ><span class="home-features-sub-heading bodyLarge"
+                        ><span
+                        ><span
+                        ><span>Помните, СПОРИМ – это место, где азарт сочетается с честностью и уважением.  Играйте с удовольствием и пусть удача всегда будет на вашей стороне!</span
+                        ><span> </span></span
+                        ><span><span> </span><span> </span></span></span
+                        ><span
+                        ><span><span> </span><span> </span></span
+                        ><span
+                        ><span> </span><span> </span></span></span></span></div
+                    >
+                    <div class="home-container03"
+                    >
+                        <div class="featuresCard feature-card-feature-card"
+                        >
+                            <svg viewBox="0 0 1024 1024" class="featuresIcon">
+                                <path
+                                        d="M809.003 291.328l-297.003 171.819-297.003-171.819 275.456-157.397c4.779-2.731 9.899-4.48 15.147-5.333 9.301-1.451 18.987 0.128 27.904 5.291zM491.776 979.669c6.016 3.243 12.928 5.077 20.224 5.077 7.381 0 14.336-1.877 20.395-5.163 15.189-2.475 29.909-7.68 43.392-15.36l298.709-170.709c26.368-15.232 45.269-38.315 55.424-64.597 5.675-14.592 8.619-30.165 8.747-46.251v-341.333c0-20.395-4.821-39.723-13.397-56.917-0.939-3.029-2.219-5.973-3.883-8.832-1.963-3.371-4.267-6.357-6.912-8.96-1.323-1.835-2.731-3.669-4.139-5.419-9.813-12.203-21.845-22.528-35.456-30.507l-299.051-170.88c-26.027-15.019-55.467-19.84-83.328-15.531-15.531 2.432-30.507 7.637-44.288 15.488l-298.709 170.709c-16.341 9.429-29.824 21.888-40.149 36.267-2.56 2.56-4.864 5.547-6.784 8.832-1.664 2.901-2.987 5.888-3.925 8.96-1.707 3.456-3.243 6.955-4.608 10.496-5.632 14.635-8.576 30.208-8.704 45.995v341.632c0.043 30.293 10.581 58.197 28.331 80.128 9.813 12.203 21.845 22.528 35.456 30.507l299.051 170.88c13.824 7.979 28.587 13.099 43.605 15.445zM469.333 537.045v340.949l-277.12-158.336c-4.736-2.773-8.832-6.315-12.16-10.411-5.931-7.381-9.387-16.512-9.387-26.581v-318.379zM554.667 877.995v-340.949l298.667-172.757v318.379c-0.043 5.163-1.067 10.496-2.987 15.445-3.413 8.789-9.6 16.384-18.176 21.333z"
+                                ></path>
+                            </svg
+                            >
+                            <div class="feature-card-container"
+                            ><h3 class="feature-card-text heading3"
+                            ><span>Честная игра – залог успеха!</span></h3
+                            ><span class="bodySmall"
+                            ><span
+                            >Никаких  хитростей и обмана! Играйте честно и уважайте других участников. Только так можно получить настоящее удовольствие от победы. </span
+                            ></span
+                            ></div
+                            >
+                        </div
+                        >
+                        <div class="featuresCard feature-card-feature-card"
+                        >
+                            <svg viewBox="0 0 1024 1024" class="featuresIcon">
+                                <path
+                                        d="M809.003 291.328l-297.003 171.819-297.003-171.819 275.456-157.397c4.779-2.731 9.899-4.48 15.147-5.333 9.301-1.451 18.987 0.128 27.904 5.291zM491.776 979.669c6.016 3.243 12.928 5.077 20.224 5.077 7.381 0 14.336-1.877 20.395-5.163 15.189-2.475 29.909-7.68 43.392-15.36l298.709-170.709c26.368-15.232 45.269-38.315 55.424-64.597 5.675-14.592 8.619-30.165 8.747-46.251v-341.333c0-20.395-4.821-39.723-13.397-56.917-0.939-3.029-2.219-5.973-3.883-8.832-1.963-3.371-4.267-6.357-6.912-8.96-1.323-1.835-2.731-3.669-4.139-5.419-9.813-12.203-21.845-22.528-35.456-30.507l-299.051-170.88c-26.027-15.019-55.467-19.84-83.328-15.531-15.531 2.432-30.507 7.637-44.288 15.488l-298.709 170.709c-16.341 9.429-29.824 21.888-40.149 36.267-2.56 2.56-4.864 5.547-6.784 8.832-1.664 2.901-2.987 5.888-3.925 8.96-1.707 3.456-3.243 6.955-4.608 10.496-5.632 14.635-8.576 30.208-8.704 45.995v341.632c0.043 30.293 10.581 58.197 28.331 80.128 9.813 12.203 21.845 22.528 35.456 30.507l299.051 170.88c13.824 7.979 28.587 13.099 43.605 15.445zM469.333 537.045v340.949l-277.12-158.336c-4.736-2.773-8.832-6.315-12.16-10.411-5.931-7.381-9.387-16.512-9.387-26.581v-318.379zM554.667 877.995v-340.949l298.667-172.757v318.379c-0.043 5.163-1.067 10.496-2.987 15.445-3.413 8.789-9.6 16.384-18.176 21.333z"
+                                ></path>
+                            </svg
+                            >
+                            <div class="feature-card-container"
+                            ><h3 class="feature-card-text heading3"
+                            ><span>Возраст имеет значение! </span></h3
+                            ><span class="bodySmall"
+                            ><span
+                            >Участие в играх разрешено только лицам старше 18 лет. Помните, азартные игры – это развлечение для взрослых.</span
+                            ></span
+                            ></div
+                            >
+                        </div
+                        >
+                        <div class="featuresCard feature-card-feature-card"
+                        >
+                            <svg viewBox="0 0 1024 1024" class="featuresIcon">
+                                <path
+                                        d="M809.003 291.328l-297.003 171.819-297.003-171.819 275.456-157.397c4.779-2.731 9.899-4.48 15.147-5.333 9.301-1.451 18.987 0.128 27.904 5.291zM491.776 979.669c6.016 3.243 12.928 5.077 20.224 5.077 7.381 0 14.336-1.877 20.395-5.163 15.189-2.475 29.909-7.68 43.392-15.36l298.709-170.709c26.368-15.232 45.269-38.315 55.424-64.597 5.675-14.592 8.619-30.165 8.747-46.251v-341.333c0-20.395-4.821-39.723-13.397-56.917-0.939-3.029-2.219-5.973-3.883-8.832-1.963-3.371-4.267-6.357-6.912-8.96-1.323-1.835-2.731-3.669-4.139-5.419-9.813-12.203-21.845-22.528-35.456-30.507l-299.051-170.88c-26.027-15.019-55.467-19.84-83.328-15.531-15.531 2.432-30.507 7.637-44.288 15.488l-298.709 170.709c-16.341 9.429-29.824 21.888-40.149 36.267-2.56 2.56-4.864 5.547-6.784 8.832-1.664 2.901-2.987 5.888-3.925 8.96-1.707 3.456-3.243 6.955-4.608 10.496-5.632 14.635-8.576 30.208-8.704 45.995v341.632c0.043 30.293 10.581 58.197 28.331 80.128 9.813 12.203 21.845 22.528 35.456 30.507l299.051 170.88c13.824 7.979 28.587 13.099 43.605 15.445zM469.333 537.045v340.949l-277.12-158.336c-4.736-2.773-8.832-6.315-12.16-10.411-5.931-7.381-9.387-16.512-9.387-26.581v-318.379zM554.667 877.995v-340.949l298.667-172.757v318.379c-0.043 5.163-1.067 10.496-2.987 15.445-3.413 8.789-9.6 16.384-18.176 21.333z"
+                                ></path>
+                            </svg
+                            >
+                            <div class="feature-card-container"
+                            ><h3 class="feature-card-text heading3"
+                            ><span>Играйте ответственно!</span></h3
+                            ><span class="bodySmall"
+                            ><span
+                            >Ставки – это лишь способ испытать удачу, а не средство заработка. Определите лимиты своих ставок и не превышайте их. </span
+                            ></span
+                            ></div
+                            >
+                        </div
+                        >
+                        <div class="featuresCard feature-card-feature-card"
+                        >
+                            <svg viewBox="0 0 1024 1024" class="featuresIcon">
+                                <path
+                                        d="M809.003 291.328l-297.003 171.819-297.003-171.819 275.456-157.397c4.779-2.731 9.899-4.48 15.147-5.333 9.301-1.451 18.987 0.128 27.904 5.291zM491.776 979.669c6.016 3.243 12.928 5.077 20.224 5.077 7.381 0 14.336-1.877 20.395-5.163 15.189-2.475 29.909-7.68 43.392-15.36l298.709-170.709c26.368-15.232 45.269-38.315 55.424-64.597 5.675-14.592 8.619-30.165 8.747-46.251v-341.333c0-20.395-4.821-39.723-13.397-56.917-0.939-3.029-2.219-5.973-3.883-8.832-1.963-3.371-4.267-6.357-6.912-8.96-1.323-1.835-2.731-3.669-4.139-5.419-9.813-12.203-21.845-22.528-35.456-30.507l-299.051-170.88c-26.027-15.019-55.467-19.84-83.328-15.531-15.531 2.432-30.507 7.637-44.288 15.488l-298.709 170.709c-16.341 9.429-29.824 21.888-40.149 36.267-2.56 2.56-4.864 5.547-6.784 8.832-1.664 2.901-2.987 5.888-3.925 8.96-1.707 3.456-3.243 6.955-4.608 10.496-5.632 14.635-8.576 30.208-8.704 45.995v341.632c0.043 30.293 10.581 58.197 28.331 80.128 9.813 12.203 21.845 22.528 35.456 30.507l299.051 170.88c13.824 7.979 28.587 13.099 43.605 15.445zM469.333 537.045v340.949l-277.12-158.336c-4.736-2.773-8.832-6.315-12.16-10.411-5.931-7.381-9.387-16.512-9.387-26.581v-318.379zM554.667 877.995v-340.949l298.667-172.757v318.379c-0.043 5.163-1.067 10.496-2.987 15.445-3.413 8.789-9.6 16.384-18.176 21.333z"
+                                ></path>
+                            </svg
+                            >
+                            <div class="feature-card-container"
+                            ><h3 class="feature-card-text heading3"
+                            ><span>Удача любит смелых!  </span></h3
+                            ><span class="bodySmall"
+                            ><span
+                            >Не бойтесь рисковать и делать ставки. Ведь именно смелость открывает путь к большим выигрышам! </span
+                            ></span
+                            ></div
+                            >
+                        </div
+                        >
+                    </div
+                    >
+                </div
+                >
+            </div
+            >
+        </div
+        >
+        <div class="home-pricing">
+            <div class="pricingContainer"
+            >
+                <div class="home-container04"
+                ><span class="overline"><span>РАЗДЕЛ</span><br/></span
+                >
+                    <h2 class="heading2">ЛОТО</h2
+                    ><span class="home-pricing-sub-heading bodyLarge"
+                    ><span
+                    ><span>Играйте и наслаждайтесь</span></span
+                    ></span
+                    ></div
+                >
+                <div class="home-container05">
+                    {% for card in Loto %}
+                        {% include "main/items/Loto.html" %}
+                    {% endfor %}
+                    {% for foo in "123" %}
+
+                        <div class="home-pricing-card09 freePricingCard">
+                            <div class="home-container20"
+                            ><h1 class="home-banner-heading23 heading2">Выигрыш</h1>
+                                <h1 class="home-banner-heading24 heading2">10000 Т</h1></div>
+                            <span class="overline"><span>Набралось 10 из 100 участников&nbsp;</span><br/></span>
+                            <button class="home-button11 buttonOutline"
+                            >Оплатить
+                            </button>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="home-pricing2"
+        >
+            <div class="pricingContainer"
+            >
+                <div class="home-container24"
+                ><span class="overline"><span>РаЗДЕЛ</span><br/></span
+                >
+                    <h2 class="heading2">СПОРТ</h2
+                    ><span class="home-pricing-sub-heading1 bodyLarge"
+                    ><span
+                    ><span>Играйте и наслаждайтесь</span></span
+                    ></span
+                    ></div
+                >
+                <div class="home-container25"
+                >
+                    <div class="home-pricing-card10 freePricingCard"
+                    >
+                        <div class="home-container26"
+                        ><span
+                        ><date-time-primitive
+                                format="DD/MM/YYYY"
+                                date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                        ></date-time-primitive></span
+                        >
+                            <h1 class="home-banner-heading25">100 Т</h1
+                            ><span
+                            ><date-time-primitive
+                                    date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                                    format="DD/MM/YYYY"
+                            ></date-time-primitive></span></div
+                        >
+                        <div class="home-container27"
+                        ><h1 class="home-banner-heading26 heading2">Выигрыш</h1
+                        >
+                            <h1 class="home-banner-heading27">10000 Т</h1
+                            ><span
+                            ><date-time-primitive
+                                    date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                                    format="DD/MM/YYYY"
+                            ></date-time-primitive></span></div
+                        >
+                        <button class="home-button12 buttonOutline"
+                        >Оплатить
+                        </button>
+                    </div
+                    >
+                    <div class="home-pricing-card11 freePricingCard"
+                    >
+                        <div class="home-container28"
+                        ><span
+                        ><date-time-primitive
+                                format="DD/MM/YYYY"
+                                date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                        ></date-time-primitive></span
+                        >
+                            <h1 class="home-banner-heading28">100 Т</h1
+                            ><span
+                            ><date-time-primitive
+                                    date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                                    format="DD/MM/YYYY"
+                            ></date-time-primitive></span></div
+                        >
+                        <div class="home-container29"
+                        ><h1 class="home-banner-heading29 heading2">Выигрыш</h1
+                        >
+                            <h1 class="home-banner-heading30">10000 Т</h1
+                            ><span
+                            ><date-time-primitive
+                                    date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                                    format="DD/MM/YYYY"
+                            ></date-time-primitive></span></div
+                        >
+                        <button class="home-button13 buttonOutline"
+                        >Оплатить
+                        </button>
+                    </div
+                    >
+                    <div class="home-pricing-card12 freePricingCard"
+                    >
+                        <div class="home-container30"
+                        ><span
+                        ><date-time-primitive
+                                format="DD/MM/YYYY"
+                                date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                        ></date-time-primitive></span
+                        >
+                            <h1 class="home-banner-heading31">100 Т</h1
+                            ><span
+                            ><date-time-primitive
+                                    date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                                    format="DD/MM/YYYY"></date-time-primitive></span></div>
+                        <div class="home-container31"
+                        ><h1 class="home-banner-heading32 heading2">Выигрыш</h1
+                        >
+                            <h1 class="home-banner-heading33">10000 Т</h1
+                            ><span
+                            ><date-time-primitive
+                                    date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                                    format="DD/MM/YYYY"
+                            ></date-time-primitive></span></div
+                        >
+                        <button class="home-button14 buttonOutline"
+                        >Оплатить
+                        </button>
+                    </div
+                    >
+                    <div class="home-pricing-card13 freePricingCard"
+                    >
+                        <div class="home-container32"
+                        ><span
+                        ><date-time-primitive
+                                format="DD/MM/YYYY"
+                                date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                        ></date-time-primitive></span
+                        >
+                            <h1 class="home-banner-heading34">100 Т</h1
+                            ><span
+                            ><date-time-primitive
+                                    date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                                    format="DD/MM/YYYY"
+                            ></date-time-primitive></span></div
+                        >
+                        <div class="home-container33"
+                        ><h1 class="home-banner-heading35 heading2">Выигрыш</h1
+                        >
+                            <h1 class="home-banner-heading36">10000 Т</h1
+                            ><span
+                            ><date-time-primitive
+                                    date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                                    format="DD/MM/YYYY"
+                            ></date-time-primitive></span></div
+                        >
+                        <button class="home-button15 buttonOutline"
+                        >Оплатить
+                        </button>
+                    </div
+                    >
+                    <div class="home-pricing-card14 freePricingCard"
+                    >
+                        <div class="home-container34"
+                        ><span
+                        ><date-time-primitive
+                                format="DD/MM/YYYY"
+                                date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                        ></date-time-primitive></span
+                        >
+                            <h1 class="home-banner-heading37">100 Т</h1
+                            ><span
+                            ><date-time-primitive
+                                    date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                                    format="DD/MM/YYYY"
+                            ></date-time-primitive></span></div
+                        >
+                        <div class="home-container35"
+                        ><h1 class="home-banner-heading38 heading2">Выигрыш</h1
+                        >
+                            <h1 class="home-banner-heading39">10000 Т</h1
+                            ><span
+                            ><date-time-primitive
+                                    date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                                    format="DD/MM/YYYY"
+                            ></date-time-primitive></span></div
+                        >
+                        <button class="home-button16 buttonOutline"
+                        >Оплатить
+                        </button>
+                    </div
+                    >
+                    <div class="home-pricing-card15 freePricingCard"
+                    >
+                        <div class="home-container36"
+                        ><h1 class="home-banner-heading40 heading2">Выигрыш</h1
+                        >
+                            <h1 class="home-banner-heading41 heading2">10000 Т</h1></div
+                        >
+                        <span class="overline"
+                        ><span>Набралось 10 из 100 участников&nbsp;</span><br/></span
+                        >
+                        <button class="home-button17 buttonOutline"
+                        >Оплатить
+                        </button>
+                    </div
+                    >
+                    <div class="home-pricing-card16 freePricingCard"
+                    >
+                        <div class="home-container37"
+                        ><h1 class="home-banner-heading42 heading2">Выигрыш</h1
+                        >
+                            <h1 class="home-banner-heading43 heading2">10000 Т</h1></div
+                        >
+                        <span class="overline"
+                        ><span>Набралось 10 из 100 участников&nbsp;</span><br/></span
+                        >
+                        <button class="home-button18 buttonOutline"
+                        >Оплатить
+                        </button>
+                    </div
+                    >
+                    <div class="home-pricing-card17 freePricingCard"
+                    >
+                        <div class="home-container38"
+                        ><h1 class="home-banner-heading44 heading2">Выигрыш</h1
+                        >
+                            <h1 class="home-banner-heading45 heading2">10000 Т</h1></div
+                        >
+                        <span class="overline"
+                        ><span>Набралось 10 из 100 участников&nbsp;</span><br/></span
+                        >
+                        <button class="home-button19 buttonOutline"
+                        >Оплатить
+                        </button>
+                    </div
+                    >
+                    <div class="home-pricing-card18 freePricingCard"
+                    >
+                        <div class="home-container39"
+                        ><h1 class="home-banner-heading46 heading2">Выигрыш</h1
+                        >
+                            <h1 class="home-banner-heading47 heading2">10000 Т</h1></div
+                        >
+                        <span class="overline"
+                        ><span>Набралось 10 из 100 участников&nbsp;</span><br/></span
+                        >
+                        <button class="home-button20 buttonOutline"
+                        >Оплатить
+                        </button>
+                    </div
+                    >
+                    <div class="home-pricing-card19 freePricingCard"
+                    >
+                        <div class="home-container40"
+                        ><h1 class="home-banner-heading48 heading2">Выигрыш</h1
+                        >
+                            <h1 class="home-banner-heading49 heading2">10000 Т</h1></div
+                        >
+                        <span class="overline"
+                        ><span>Набралось 10 из 100 участников&nbsp;</span><br/></span
+                        >
+                        <button class="home-button21 buttonOutline"
+                        >Оплатить
+                        </button>
+                    </div
+                    >
+                </div
+                >
+                <div class="home-container41"></div>
+            </div>
+        </div
+        >
+        <div class="home-pricing4"
+        >
+            <div class="pricingContainer"
+            >
+                <div class="home-container44"
+                ><span class="overline"><span>Раздел</span><br/></span
+                >
+                    <h2 class="heading2">СВОИ СПОРЫ</h2
+                    ><span class="home-pricing-sub-heading2 bodyLarge"
+                    ><span
+                    ><span>Играйте и наслаждайтесь</span></span
+                    ></span
+                    ></div
+                >
+                <div class="home-container45"
+                >
+                    <div class="home-pricing-card20 freePricingCard"
+                    >
+                        <div class="home-container46"
+                        ><span
+                        ><date-time-primitive
+                                format="DD/MM/YYYY"
+                                date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                        ></date-time-primitive></span
+                        >
+                            <h1 class="home-banner-heading50">100 Т</h1
+                            ><span
+                            ><date-time-primitive
+                                    date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                                    format="DD/MM/YYYY"
+                            ></date-time-primitive></span></div
+                        >
+                        <div class="home-container47"
+                        ><h1 class="home-banner-heading51 heading2">Выигрыш</h1
+                        >
+                            <h1 class="home-banner-heading52">10000 Т</h1
+                            ><span
+                            ><date-time-primitive
+                                    date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                                    format="DD/MM/YYYY"
+                            ></date-time-primitive></span></div
+                        >
+                        <button class="home-button22 buttonOutline"
+                        >Оплатить
+                        </button>
+                    </div
+                    >
+                    <div class="home-pricing-card21 freePricingCard"
+                    >
+                        <div class="home-container48"
+                        ><span
+                        ><date-time-primitive
+                                format="DD/MM/YYYY"
+                                date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                        ></date-time-primitive></span
+                        >
+                            <h1 class="home-banner-heading53">100 Т</h1
+                            ><span
+                            ><date-time-primitive
+                                    date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                                    format="DD/MM/YYYY"
+                            ></date-time-primitive></span></div
+                        >
+                        <div class="home-container49"
+                        ><h1 class="home-banner-heading54 heading2">Выигрыш</h1
+                        >
+                            <h1 class="home-banner-heading55">10000 Т</h1
+                            ><span
+                            ><date-time-primitive
+                                    date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                                    format="DD/MM/YYYY"
+                            ></date-time-primitive></span></div
+                        >
+                        <button class="home-button23 buttonOutline"
+                        >Оплатить
+                        </button>
+                    </div
+                    >
+                    <div class="home-pricing-card22 freePricingCard"
+                    >
+                        <div class="home-container50"
+                        ><span
+                        ><date-time-primitive
+                                format="DD/MM/YYYY"
+                                date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                        ></date-time-primitive></span
+                        >
+                            <h1 class="home-banner-heading56">100 Т</h1
+                            ><span
+                            ><date-time-primitive
+                                    date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                                    format="DD/MM/YYYY"
+                            ></date-time-primitive></span></div
+                        >
+                        <div class="home-container51"
+                        ><h1 class="home-banner-heading57 heading2">Выигрыш</h1
+                        >
+                            <h1 class="home-banner-heading58">10000 Т</h1
+                            ><span
+                            ><date-time-primitive
+                                    date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                                    format="DD/MM/YYYY"
+                            ></date-time-primitive></span></div
+                        >
+                        <button class="home-button24 buttonOutline"
+                        >Оплатить
+                        </button>
+                    </div
+                    >
+                    <div class="home-pricing-card23 freePricingCard"
+                    >
+                        <div class="home-container52"
+                        ><span
+                        ><date-time-primitive
+                                format="DD/MM/YYYY"
+                                date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                        ></date-time-primitive></span
+                        >
+                            <h1 class="home-banner-heading59">100 Т</h1
+                            ><span
+                            ><date-time-primitive
+                                    date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                                    format="DD/MM/YYYY"
+                            ></date-time-primitive></span></div
+                        >
+                        <div class="home-container53"
+                        ><h1 class="home-banner-heading60 heading2">Выигрыш</h1
+                        >
+                            <h1 class="home-banner-heading61">10000 Т</h1
+                            ><span
+                            ><date-time-primitive
+                                    date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                                    format="DD/MM/YYYY"
+                            ></date-time-primitive></span></div
+                        >
+                        <button class="home-button25 buttonOutline"
+                        >Оплатить
+                        </button>
+                    </div
+                    >
+                    <div class="home-pricing-card24 freePricingCard"
+                    >
+                        <div class="home-container54"
+                        ><span
+                        ><date-time-primitive
+                                format="DD/MM/YYYY"
+                                date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                        ></date-time-primitive></span
+                        >
+                            <h1 class="home-banner-heading62">100 Т</h1
+                            ><span
+                            ><date-time-primitive
+                                    date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                                    format="DD/MM/YYYY"
+                            ></date-time-primitive></span></div
+                        >
+                        <div class="home-container55"
+                        ><h1 class="home-banner-heading63 heading2">Выигрыш</h1
+                        >
+                            <h1 class="home-banner-heading64">10000 Т</h1
+                            ><span
+                            ><date-time-primitive
+                                    date="Sun Apr 21 2024 16:02:26 GMT+0300 (Москва, стандартное время)"
+                                    format="DD/MM/YYYY"
+                            ></date-time-primitive></span></div
+                        >
+                        <button class="home-button26 buttonOutline"
+                        >Оплатить
+                        </button>
+                    </div
+                    >
+                    <div class="home-pricing-card25 freePricingCard"
+                    >
+                        <div class="home-container56"
+                        ><h1 class="home-banner-heading65 heading2">Выигрыш</h1
+                        >
+                            <h1 class="home-banner-heading66 heading2">10000 Т</h1></div
+                        >
+                        <span class="overline"
+                        ><span>Набралось 10 из 100 участников&nbsp;</span><br/></span
+                        >
+                        <button class="home-button27 buttonOutline"
+                        >Оплатить
+                        </button>
+                    </div
+                    >
+                    <div class="home-pricing-card26 freePricingCard"
+                    >
+                        <div class="home-container57"
+                        ><h1 class="home-banner-heading67 heading2">Выигрыш</h1
+                        >
+                            <h1 class="home-banner-heading68 heading2">10000 Т</h1></div
+                        >
+                        <span class="overline"
+                        ><span>Набралось 10 из 100 участников&nbsp;</span><br/></span
+                        >
+                        <button class="home-button28 buttonOutline"
+                        >Оплатить
+                        </button>
+                    </div
+                    >
+                    <div class="home-pricing-card27 freePricingCard"
+                    >
+                        <div class="home-container58"
+                        ><h1 class="home-banner-heading69 heading2">Выигрыш</h1
+                        >
+                            <h1 class="home-banner-heading70 heading2">10000 Т</h1></div
+                        >
+                        <span class="overline"
+                        ><span>Набралось 10 из 100 участников&nbsp;</span><br/></span
+                        >
+                        <button class="home-button29 buttonOutline"
+                        >Оплатить
+                        </button>
+                    </div
+                    >
+                    <div class="home-pricing-card28 freePricingCard"
+                    >
+                        <div class="home-container59"
+                        ><h1 class="home-banner-heading71 heading2">Выигрыш</h1
+                        >
+                            <h1 class="home-banner-heading72 heading2">10000 Т</h1></div
+                        >
+                        <span class="overline"
+                        ><span>Набралось 10 из 100 участников&nbsp;</span><br/></span
+                        >
+                        <button class="home-button30 buttonOutline"
+                        >Оплатить
+                        </button>
+                    </div
+                    >
+                    <div class="home-pricing-card29 freePricingCard"
+                    >
+                        <div class="home-container60"
+                        ><h1 class="home-banner-heading73 heading2">Выигрыш</h1
+                        >
+                            <h1 class="home-banner-heading74 heading2">10000 Т</h1></div
+                        >
+                        <span class="overline"
+                        ><span>Набралось 10 из 100 участников&nbsp;</span><br/></span
+                        >
+                        <button class="home-button31 buttonOutline"
+                        >Оплатить
+                        </button>
+                    </div
+                    >
+                </div
+                >
+                <div class="home-container61"></div>
+            </div>
+        </div
+        >
+        <div class="home-faq2"
+        >
+            <div class="faqContainer"
+            >
+                <div class="home-faq3"
+                >
+                    <div class="home-container42"
+                    ><span class="overline"><span>FAQ</span><br/></span
+                    >
+                        <h2 class="home-text075 heading2">Общие вопросы</h2
+                        ><span class="home-text076 bodyLarge"
+                        ><span
+                        >Вот некоторые из наиболее частых вопросов, которые мы получаем.</span
+                        ><br/></span></div
+                    >
+                    <div class="home-container43"
+                    >
+                        <div class="question1-container"
+                        ><span class="question1-text heading3"
+                        ><span>Что такое токен СПОРИМ и как его использовать?</span></span
+                        ><span class="bodySmall"
+                        ><span
+                        >Это внутренняя валюта платформы (1 СПОРИМ = 0.0001 ETH), используемая для участия в играх.</span
+                        ></span
+                        ></div
+                        >
+                        <div class="question1-container"
+                        ><span class="question1-text heading3"
+                        ><span>Как участвовать в лотерее?</span></span
+                        ><span class="bodySmall"
+                        ><span
+                        >Выберите лотерею и купите билеты за токены СПОРИМ. Больше билетов - выше шансы! </span
+                        ></span
+                        ></div
+                        >
+                        <div class="question1-container"
+                        ><span class="question1-text heading3"
+                        ><span>Как создать спор?</span></span
+                        ><span class="bodySmall"
+                        ><span
+                        > Сформулируйте тему, варианты исхода, укажите сумму ставки в токенах СПОРИМ. </span
+                        ></span
+                        ></div
+                        >
+                        <div class="question1-container"
+                        ><span class="question1-text heading3"
+                        ><span> Кто побеждает в споре?</span></span
+                        ><span class="bodySmall"
+                        ><span
+                        >Победитель определяется условиями спора. Выигрыш делится между теми, кто угадал исход.</span
+                        ></span
+                        ></div
+                        >
+                        <div class="question1-container"
+                        ><span class="question1-text heading3"
+                        ><span>Как вывести выигрыш?</span></span
+                        ><span class="bodySmall"
+                        ><span
+                        >Выведите токены СПОРИМ на свой кошелек или обменяйте на другие валюты.</span
+                        ></span
+                        ></div
+                        >
+                    </div
+                    >
+                </div
+                >
+            </div
+            >
+        </div
+        >
+
+        <div class="home-footer"
+        >
+            <footer class="footerContainer home-footer1"
+            >
+                <div class="home-container62"
+                ><span class="logo">BRAND</span
+                >
+                    <nav class="home-nav1"
+                    ><span class="bodySmall">Home</span
+                    ><span class="home-nav221 bodySmall">Products</span
+                    ><span class="home-nav321 bodySmall">About Us</span
+                    ><span class="home-nav421 bodySmall">Contact</span
+                    ><span class="home-nav521 bodySmall">FAQ</span></nav
+                    >
+                </div
+                >
+                <div class="home-separator"></div
+                >
+                <div class="home-container63"
+                >
+                    <div class="home-icon-group1"
+                    >
+                        <svg
+                                viewBox="0 0 950.8571428571428 1024"
+                                class="home-icon10 socialIcons"
+                        >
+                            <path
+                                    d="M925.714 233.143c-25.143 36.571-56.571 69.143-92.571 95.429 0.571 8 0.571 16 0.571 24 0 244-185.714 525.143-525.143 525.143-104.571 0-201.714-30.286-283.429-82.857 14.857 1.714 29.143 2.286 44.571 2.286 86.286 0 165.714-29.143 229.143-78.857-81.143-1.714-149.143-54.857-172.571-128 11.429 1.714 22.857 2.857 34.857 2.857 16.571 0 33.143-2.286 48.571-6.286-84.571-17.143-148-91.429-148-181.143v-2.286c24.571 13.714 53.143 22.286 83.429 23.429-49.714-33.143-82.286-89.714-82.286-153.714 0-34.286 9.143-65.714 25.143-93.143 90.857 112 227.429 185.143 380.571 193.143-2.857-13.714-4.571-28-4.571-42.286 0-101.714 82.286-184.571 184.571-184.571 53.143 0 101.143 22.286 134.857 58.286 41.714-8 81.714-23.429 117.143-44.571-13.714 42.857-42.857 78.857-81.143 101.714 37.143-4 73.143-14.286 106.286-28.571z"
+                            ></path>
+                        </svg
+                        >
+                        <svg
+                                viewBox="0 0 877.7142857142857 1024"
+                                class="home-icon12 socialIcons"
+                        >
+                            <path
+                                    d="M585.143 512c0-80.571-65.714-146.286-146.286-146.286s-146.286 65.714-146.286 146.286 65.714 146.286 146.286 146.286 146.286-65.714 146.286-146.286zM664 512c0 124.571-100.571 225.143-225.143 225.143s-225.143-100.571-225.143-225.143 100.571-225.143 225.143-225.143 225.143 100.571 225.143 225.143zM725.714 277.714c0 29.143-23.429 52.571-52.571 52.571s-52.571-23.429-52.571-52.571 23.429-52.571 52.571-52.571 52.571 23.429 52.571 52.571zM438.857 152c-64 0-201.143-5.143-258.857 17.714-20 8-34.857 17.714-50.286 33.143s-25.143 30.286-33.143 50.286c-22.857 57.714-17.714 194.857-17.714 258.857s-5.143 201.143 17.714 258.857c8 20 17.714 34.857 33.143 50.286s30.286 25.143 50.286 33.143c57.714 22.857 194.857 17.714 258.857 17.714s201.143 5.143 258.857-17.714c20-8 34.857-17.714 50.286-33.143s25.143-30.286 33.143-50.286c22.857-57.714 17.714-194.857 17.714-258.857s5.143-201.143-17.714-258.857c-8-20-17.714-34.857-33.143-50.286s-30.286-25.143-50.286-33.143c-57.714-22.857-194.857-17.714-258.857-17.714zM877.714 512c0 60.571 0.571 120.571-2.857 181.143-3.429 70.286-19.429 132.571-70.857 184s-113.714 67.429-184 70.857c-60.571 3.429-120.571 2.857-181.143 2.857s-120.571 0.571-181.143-2.857c-70.286-3.429-132.571-19.429-184-70.857s-67.429-113.714-70.857-184c-3.429-60.571-2.857-120.571-2.857-181.143s-0.571-120.571 2.857-181.143c3.429-70.286 19.429-132.571 70.857-184s113.714-67.429 184-70.857c60.571-3.429 120.571-2.857 181.143-2.857s120.571-0.571 181.143 2.857c70.286 3.429 132.571 19.429 184 70.857s67.429 113.714 70.857 184c3.429 60.571 2.857 120.571 2.857 181.143z"
+                            ></path>
+                        </svg
+                        >
+                        <svg
+                                viewBox="0 0 602.2582857142856 1024"
+                                class="home-icon14 socialIcons"
+                        >
+                            <path
+                                    d="M548 6.857v150.857h-89.714c-70.286 0-83.429 33.714-83.429 82.286v108h167.429l-22.286 169.143h-145.143v433.714h-174.857v-433.714h-145.714v-169.143h145.714v-124.571c0-144.571 88.571-223.429 217.714-223.429 61.714 0 114.857 4.571 130.286 6.857z"
+                            ></path>
+                        </svg>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div
+    >
+</div>
+
+</body
+>
+</html>
