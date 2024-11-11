@@ -1,0 +1,157 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.card {
+    background-color: #2C2C2C;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+}
+
+.card-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.card-content {
+    margin-bottom: 15px;
+}
+
+.card-content p {
+    line-height: 1.5;
+    color: #ffffff;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-around; /* Выравнивание кнопок по краям */
+    align-items: center; /* Выравнивание кнопок по вертикали */
+    gap: 10px; 
+}
+
+.button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 48%; /* Вернули ширину кнопкам */
+}
+
+.button-yes {
+    background-color: #dfdfdf;
+}
+
+.button-yes:hover {
+    background-color: #aaaaaa;
+}
+
+.button-no {
+    background-color: #dfdfdf;
+}
+
+.button-no:hover {
+    background-color: #aaaaaa;
+}
+
+.button-cancel {
+    padding: 8px 10px;
+    border: none;
+    border-radius: 50%;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #ccc;
+    color: #555;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.button-cancel:hover {
+    background-color: #bbb;
+}
+
+.hidden {
+    display: none;
+}
+
+.bet-amount {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.plus-minus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.plus-minus button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #ddd;
+    color: #555;
+    width: 30px;
+    height: 30px;
+}
+
+.plus-minus button:hover {
+    background-color: #ccc;
+}
+
+/* for button plus minus */
+
+.quantity_inner * {
+    box-sizing: border-box;    
+}    
+.quantity_inner {
+    display: inline-flex;
+    border-radius: 26px;
+    border: 4px solid #ccc;
+}        
+.quantity_inner .bt_minus,
+.quantity_inner .bt_plus,
+.quantity_inner .quantity {
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    background: transparent;
+    cursor: pointer;
+    outline: 0;
+}
+.quantity_inner .quantity {
+    width: 50px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: #ccc;
+    font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+}
+.quantity_inner .bt_minus svg,
+.quantity_inner .bt_plus svg {
+    stroke: #ccc;
+    stroke-width: 4
+}

@@ -11,15 +11,35 @@ class Tranzactions(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     tranz_status = models.IntegerField(default=0)
     hash = models.TextField(verbose_name="hash")
-
+    
+    def __str__(self):
+        return f"title: {self.user} id: {self.id}"
+    
+    
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     balance = models.PositiveIntegerField(default=0)
     wins_games = models.PositiveIntegerField(default=0)
     wins_coins = models.IntegerField(default=0)
     CruptoAddr = models.TextField(verbose_name="Адрес", default="None")
+    
     def __str__(self):
         return f"title: {self.user} id: {self.id}"
+
+
+class Self_game(models.Model):
+    description =  models.TextField(verbose_name="Описание спора", default="")
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    win_ans = models.PositiveIntegerField(default=0) # 1 - yes 2 - no
+    post = models.PositiveIntegerField(default=0) # 0 - no 1 - yes
+    stastavka = models.IntegerField(default=100)
+    timelimit = models.IntegerField(default=30, verbose_name="Время ожидания в минутах")
+
+    class Meta:
+        verbose_name = 'Описание Sporim'
+        verbose_name_plural = 'Описание Sporim'
+        ordering = ['id']
+
 
 
 @receiver(post_save, sender=User)
@@ -48,6 +68,14 @@ class Color(models.Model):
     color = models.CharField(max_length=255)
 
 
+# class Color(models.Model):
+#     people = models.ManyToMany
+    
+
+class Prices(models.Model):
+    stavka = models.IntegerField(default=100)
+    
+
 class Game(models.Model):
     title = models.CharField(max_length=255, verbose_name="Заголовок", default="Game")
     Description = models.TextField(verbose_name="Описание", default="Описание")
@@ -67,19 +95,33 @@ class Game(models.Model):
     class Meta:
         verbose_name = "Игра в Sporim"
 
+
 @receiver(post_save, sender=Game)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         print(instance)
-        instance.color = choice(bright_colors)
+        # instance.color = choice(bright_colors)
         instance.save()
 
 
-
+class variables(models.Model):
+    Game = models.ForeignKey(Game, on_delete=models.CASCADE, default=None)
+    Description = models.TextField(verbose_name="Описание", default="Описание")
+    
+    class Meta:
+        verbose_name = 'Свой спор'
+        verbose_name_plural = 'Свои споры'
+        ordering = ['id']
+        
+        
+# class Sporim_self(models.Model):
+#     Game = models.ForeignKey(Game, on_delete=models.CASCADE, default=None)
+#     Winner = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+    
+    
 class Loto(models.Model):
     Game = models.ForeignKey(Game, on_delete=models.CASCADE, default=None)
     Winner = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
-
 
     def get_absolute_url(self):
         return reverse('Game', kwargs={'ID': self.Game})
@@ -88,6 +130,11 @@ class Loto(models.Model):
         verbose_name = 'Лото'
         verbose_name_plural = 'Лото'
         ordering = ['id']
+    
+    def __str__(self):
+        return f"Игра: {self.Game} Победитель: {self.Winner}"
+    
+
 
 
 class linkGame(models.Model):
@@ -98,9 +145,9 @@ class linkGame(models.Model):
 
     class Meta:
         verbose_name = "Связь между играми"
-
-
-
+    
+    def __str__(self):
+        return f"Игра: {self.Game} Пользователь: {self.UserId}"
 
 class Category(models.Model):
     name = models.CharField(max_length=100, db_index=True, verbose_name="Категория")
@@ -108,7 +155,7 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
-
+    
     def get_absolute_url(self):
         return reverse('category', kwargs={'cat_slug': self.slug})
 

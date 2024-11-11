@@ -10,14 +10,9 @@
         </div>
         <div class="container-sport">
             <div class="container-flex-spor">
-                <ItemSpor/>
-                <ItemSpor/>
-                <ItemSpor/>
-                <ItemSpor/>
-                <ItemSpor/>
-                <ItemSpor/>
-                <ItemSpor/>
-                <ItemSpor/>
+                {% for card in Loto %}
+                    {% include "main/items/test_card.html" %}
+                {% endfor %}
             </div>
         </div>
     </div>

@@ -1,0 +1,12 @@
+.self-spor-pricing-card {
+  width: 290px;
+  height: 382px;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: var(--dl-radius-radius-radius8);
+  background-color: #000000;
+} 
+
+.home-banner-heading {
+    color: aliceblue;
+} 

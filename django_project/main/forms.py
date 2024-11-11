@@ -23,17 +23,6 @@ class CruptoAddrForm(forms.Form):
 
 
 
-class RegisterUserForm(UserCreationForm):
-    username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'form-input'}))
-    email = forms.EmailField(label='Email', widget=forms.EmailInput(attrs={'class': 'form-input'}))
-    password1 = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
-    password2 = forms.CharField(label='Повтор пароля', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
-
-    class Meta:
-        model = UserSporim
-        fields = ('username', 'email', 'password1', 'password2')
-        
-        
 class RegisterLinkGameForm(UserCreationForm):
     Game = models.ForeignKey(Game, on_delete=models.PROTECT, verbose_name="Game")
     UserId = models.OneToOneField(User,on_delete=models.CASCADE, verbose_name="UserId")
@@ -44,3 +33,30 @@ class RegisterLinkGameForm(UserCreationForm):
 class LoginUserForm(AuthenticationForm):
     username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'form-input'}))
     password = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+
+
+class RegisterUserForm(UserCreationForm):
+    username  = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'form-input'}))
+    email     = forms.EmailField(label='Email', widget=forms.EmailInput(attrs={'class': 'form-input'}))
+    password1 = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+    password2 = forms.CharField(label='Повтор пароля', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+
+    class Meta:
+        model = UserSporim
+        fields = ('username', 'email', 'password1', 'password2')
+        
+
+# class SelfSporCreationForm(forms.Form):
+#     description = forms.CharField(label='Описание', widget=forms.TextInput(attrs={'class': 'form-input'}))
+
+#     class Meta:
+#         model = Self_game
+#         fields = ('description',)
+        
+class SelfGameForm(forms.ModelForm):
+    class Meta:
+        model = Self_game
+        fields = ['description', ]
+        widgets = {
+            'description': forms.Textarea(attrs={'cols': 20, 'rows': 10}),
+        }

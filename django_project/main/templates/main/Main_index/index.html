@@ -116,6 +116,10 @@
 <div>
     <link rel="stylesheet" href="{% static "main/css/Main_index/style.css" %}">
     <link rel="stylesheet" href="{% static "main/css/Main_index/index.css" %}">
+    <link rel="stylesheet" href="{% static "main/css/items/items.css" %}">
+    <link rel="stylesheet" href="{% static "main/css/items/items_self_spor.css" %}">
+
+
     <div class="home-container">
         <div class="home-header">
             <header data-thq="thq-navbar" class="navbarContainer home-navbar-interactive"><span>СПОРИМ</span>
@@ -366,7 +370,7 @@
                     {% for card in Loto %}
                         {% include "main/items/Loto.html" %}
                     {% endfor %}
-                    {% for foo in "123" %}
+                    {% comment %} {% for foo in "123" %}
 
                         <div class="home-pricing-card09 freePricingCard">
                             <div class="home-container20"
@@ -377,11 +381,11 @@
                             >Оплатить
                             </button>
                         </div>
-                    {% endfor %}
+                    {% endfor %} {% endcomment %}
                 </div>
             </div>
         </div>
-        <div class="home-pricing2"
+        {% comment %} <div class="home-pricing2"
         >
             <div class="pricingContainer"
             >
@@ -630,8 +634,41 @@
                 <div class="home-container41"></div>
             </div>
         </div
+        > {% endcomment %}
+        <div class="pricingContainer"
         >
-        <div class="home-pricing4"
+            <div class="home-container04"
+            ><span class="overline"><span>РАЗДЕЛ</span><br/></span
+            >
+                <h2 class="heading2">СВОИ СПОРЫ</h2
+                ><span class="home-pricing-sub-heading bodyLarge"
+                ><span
+                ><span>Играйте и наслаждайтесь</span></span
+                ></span
+                ></div
+            >
+            <button class="home-button button" onclick="location.href='/create_spor'">Предложить свой спор
+                </button
+                >
+            <div class="home-container05">
+                {% for card in Self_games %}
+                    {% include "main/items/test_card.html" %}
+                {% endfor %}
+                {% comment %} {% for foo in "123" %}
+
+                    <div class="home-pricing-card09 freePricingCard">
+                        <div class="home-container20"
+                        ><h1 class="home-banner-heading23 heading2">Выигрыш</h1>
+                            <h1 class="home-banner-heading24 heading2">10000 Т</h1></div>
+                        <span class="overline"><span>Набралось 10 из 100 участников&nbsp;</span><br/></span>
+                        <button class="home-button11 buttonOutline"
+                        >Оплатить
+                        </button>
+                    </div>
+                {% endfor %} {% endcomment %}
+            </div>
+        </div>
+        {% comment %} <div class="home-pricing4"
         >
             <div class="pricingContainer"
             >
@@ -882,7 +919,7 @@
                 <div class="home-container61"></div>
             </div>
         </div
-        >
+        > {% endcomment %}
         <div class="home-faq2"
         >
             <div class="faqContainer"
@@ -905,7 +942,7 @@
                         ><span>Что такое токен СПОРИМ и как его использовать?</span></span
                         ><span class="bodySmall"
                         ><span
-                        >Это внутренняя валюта платформы (1 СПОРИМ = 0.0001 ETH), используемая для участия в играх.</span
+                        >Это внутренняя валюта платформы (1 Токен СПОРИМ = 1 РУБЛЬ), используемая для участия в играх.</span
                         ></span
                         ></div
                         >

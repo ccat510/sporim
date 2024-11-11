@@ -18,6 +18,11 @@ from .config import *
 
 
 
+    
+def get_self_games(request):
+    self_games = Self_game.objects.all()
+    return self_games
+
 def index(request):
     if request.method == "POST":
         form = request.POST.get("CruptoAddr", None)
@@ -34,7 +39,7 @@ def index(request):
             basket = list(map(lambda x: int(x.id),list(linkGame.objects.filter(UserId=request.user))))
             lose_count = len(Loto.objects.filter(Winner=request.user)) - len(basket)
             LotoL = list(Game.objects.filter(cat__name="Loto", is_published=True))
-
+            self_games = Self_game.objects.filter(post=1)
             LotoL = list(map(lambda x: {
                 "id": int(x.id),
                 'stavka': x.stavka,
@@ -51,6 +56,7 @@ def index(request):
                 "Profile": user_profile,
                 "Games": Loto.objects.filter(Winner=request.user),
                 "Loto": LotoL,
+                "Self_games": self_games,
             }
         except Profile.DoesNotExist:
             pass
@@ -65,6 +71,11 @@ def about(request):
 def register(request):
     pass
 
+def create_self_spor(request, description):
+    self_spor = Self_game()
+    self_spor.owner = request.user
+    self_spor.description = description
+    self_spor.save()
 
 class CruptoAddr(CreateView):
     form_class = CruptoAddrForm
@@ -72,9 +83,10 @@ class CruptoAddr(CreateView):
     success_url = reverse_lazy('home')
 
     def form_valid(self, form):
-        # user = form.save()
-        # login(self.request, user)
+        user = form.save()
+        # create_self_spor(self.request, description)
         return redirect('home')
+
 
 class RegisterUser(CreateView):
     form_class = UserCreationForm
@@ -86,7 +98,22 @@ class RegisterUser(CreateView):
         login(self.request, user)
         return redirect('login')
 
-class LoginUser( LoginView):
+
+class Create_self_game(CreateView):
+    form_class = SelfGameForm
+    template_name = 'main/add_new_self_spor.html'
+    success_url = reverse_lazy('create_spor')
+
+    def form_valid(self, form):
+        form_self_spor = form.save(commit=False)  
+               
+        description = form_self_spor.description
+        create_self_spor(self.request, description)
+        return redirect('home')
+
+
+
+class LoginUser(LoginView):
     form_class = LoginUserForm
     template_name = 'main/Home/login.html'
     success_url = reverse_lazy('login')

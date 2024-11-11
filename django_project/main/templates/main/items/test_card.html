@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Спор Карточка</title>
+    <link rel="stylesheet" href="items.css">
+    <body>
+
+        {% comment %} <div class="card">
+            <div class="card-title">Создатель спора:</div>
+            <div class="card-content">
+                <p>{{ card.owner }}</p>
+            </div>
+            <div class="card-title">Описание спора:</div>
+            <div class="card-content">
+                <p>{{ card.description }}</p>
+            </div>
+            <div class="bet-amount">Ставка: <span id="bet-amount">{{ card.stastavka }}</span>
+                <button class="pay-button">Оплатить</button>
+            </div>
+            <div class="button-group">
+                <button class="button button-yes">Да</button>
+                <button class="button button-no">Нет</button>
+                <div class="quantity_inner hidden">        
+                    <button class="bt_minus hidden" id="bt_minus">
+                        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    </button>
+                    <input type="text" value="{{ card.stastavka }}" size="4" class="quantity hidden" id="quantity" data-max-count="{{ card.stastavka }}0" />
+                    <button class="bt_plus hidden" id="bt_plus">
+                        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    </button>
+                </div>
+            </div>
+            <button class="button-cancel">✕</button>
+            
+        </div>
+     {% endcomment %}
+        <div class="home-pricing-card freePricingCard" style="background: black">
+            <div class="home-container06"><span>
+                <div class="card-title home-banner-heading">Создатель спора: {{ card.owner }}</div>
+            </div>
+            <div class="home-container06"><span>
+                <div class="card-title">Описание спора:</div>
+                <div class="card-content">
+                    <p>{{ card.description }}</p>
+                </div>
+            </div>
+            <div class="home-container06"><span>
+                <div class="card-content">
+                    <div class="bet-amount"> Шаг ставки: <span id="bet-amount">{{ card.stastavka }}₽</span></div>
+                </div>
+            </div>
+            <div class="home-container06"><span>
+
+            <div class="button-group">
+                <button class="button button-yes">Да</button>
+                <button class="button button-no">Нет</button>
+                <div class="quantity_inner hidden">        
+                    <button class="bt_minus hidden" id="bt_minus">
+                        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    </button>
+                    <input type="text" value="{{ card.stastavka }}" size="4" class="quantity hidden" id="quantity" data-max-count="{{ card.stastavka }}0" />
+                    <button class="bt_plus hidden" id="bt_plus">
+                        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    </button>
+                </div>
+            </div>
+            </div>
+
+            <button class="button-cancel">✕</button>
+        </div>
+        
+        <script>
+            const buttonYes = document.querySelector('.button-yes');
+            const buttonNo = document.querySelector('.button-no');
+            const buttonCancel = document.querySelector('.button-cancel');
+            const plusButton = document.getElementById('bt_plus');
+            const minusButton = document.getElementById('bt_minus');
+            const betAmountSpan = document.getElementById('quantity');
+            const plusMinusDiv = document.querySelector('.plus_minus');
+            let betAmount = 100;
+    
+            function resetButtons() {
+                buttonYes.classList.remove('hidden');
+                buttonNo.classList.remove('hidden');
+                buttonYes.classList.remove('active');
+                buttonNo.classList.remove('active');
+                plusMinusDiv.classList.add('hidden');
+                betAmountSpan.value = '100';
+                betAmount = 100;
+            }
+    
+            buttonYes.addEventListener('click', () => {
+                buttonNo.classList.add('hidden');
+                buttonYes.classList.add('active');
+                plusMinusDiv.classList.remove('hidden');
+            });
+    
+            buttonNo.addEventListener('click', () => {
+                buttonYes.classList.add('hidden');
+                buttonNo.classList.add('active');
+                plusButton.classList.remove('hidden');
+                minusButton.classList.remove('hidden');
+                betAmountSpan.classList.remove('hidden');
+            });
+
+            buttonYes.addEventListener('click', () => {
+                buttonNo.classList.add('hidden');
+                buttonYes.classList.add('active');
+                plusButton.classList.remove('hidden');
+                minusButton.classList.remove('hidden');
+                betAmountSpan.classList.remove('hidden');
+            });
+    
+            buttonNo.addEventListener('click', () => {
+                buttonYes.classList.add('hidden');
+                buttonNo.classList.add('active');
+                plusMinusDiv.classList.remove('hidden');
+            });
+    
+    
+            buttonCancel.addEventListener('click', () => {
+                resetButtons();
+            });
+    
+            plusButton.addEventListener('click', () => {
+                betAmount += {{ card.stastavka }};
+                betAmountSpan.value = betAmount;
+            });
+    
+            minusButton.addEventListener('click', () => {
+                if (betAmount > {{ card.stastavka }}) {
+                    betAmount -= {{ card.stastavka }};
+                    betAmountSpan.value = betAmount;
+                }
+            });
+        </script>
+    
+    </body>
+</html>
